@@ -108,7 +108,7 @@ class UnorderedList:
         else:
             self.head = new_node
  
-#    def pop(self, pos=0):
+#    def pop(self):
 #        # pops lastmost item
 #        current = self.head
 #        previous = None
@@ -122,10 +122,9 @@ class UnorderedList:
 #               self.head = None 
 #            return current.getData()
     
-    def pop(self, pos):
+    def pop(self, pos=0):
         current = self.head
         previous = None
-        found = False
         count = 0
         while count != pos:
             previous = current
