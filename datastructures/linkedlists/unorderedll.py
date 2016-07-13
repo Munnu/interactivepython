@@ -1,19 +1,4 @@
-class Node:
-    def __init__(self, initdata):
-        self.data = initdata
-        self.next = None
-
-    def getData(self):
-        return self.data
-
-    def getNext(self):
-        return self.next
-
-    def setData(self, newdata):
-        self.data = newdata
-
-    def setNext(self, newnext):
-        self.next = newnext
+from node import Node
 
 class UnorderedList:
     def __init__(self):
@@ -40,7 +25,7 @@ class UnorderedList:
         current = self.head
         found = False
         while current != None and not found:
-            if current.getData() == item:
+            if current.getData() == atem:
                 found = True
             else:
                 current = current.getNext()
@@ -84,10 +69,9 @@ class UnorderedList:
         while not found and current != None:
             if current.getData() == item:
                 found = True 
-                break
             else:
                 current = current.getNext()
-            count += 1
+                count += 1
         if found is False:
             return None
         return count
@@ -122,7 +106,11 @@ class UnorderedList:
 #               self.head = None 
 #            return current.getData()
     
-    def pop(self, pos=0):
+    def pop(self, pos=None):
+        if pos is None:
+            # if the position is not specified
+            # assume that pop must happen at end of LL
+            pos = self.size()-1
         current = self.head
         previous = None
         count = 0
