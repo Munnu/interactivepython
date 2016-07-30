@@ -31,3 +31,31 @@ class BinaryTree:
 
     def getRootVal(self):
         return self.key
+
+def build_tree():
+    root = BinaryTree('a')
+    root.insertLeft(BinaryTree('b'))
+    root.insertRight(BinaryTree('c'))
+    left = root.getLeftChild()
+    left.insertRight(BinaryTree('d'))
+    right = root.getRightChild()
+    right.insertLeft('E')
+    right.insertRight('F')
+
+    assembled_tree = root
+    return assembled_tree
+
+print build_tree()
+
+# how to actually use the thing
+r = BinaryTree('a')
+print(r.getRootVal())
+print(r.getLeftChild())
+r.insertLeft('b')
+print(r.getLeftChild())
+print(r.getLeftChild().getRootVal())
+r.insertRight('c')
+print(r.getRightChild())
+print(r.getRightChild().getRootVal())
+r.getRightChild().setRootVal('hello')
+print(r.getRightChild().getRootVal())
